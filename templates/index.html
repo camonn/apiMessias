@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachaçaria do Seu Zé</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo à Cachaçaria do Seu Zé!</h1>
+        
+        <!-- Formulário para o usuário escolher quantos conselhos quer -->
+        <form method="POST">
+            <label for="num_advice">Quantos conselhos o Seu Zé precisa?</label>
+            <input type="number" id="num_advice" name="num_advice" min="1" required placeholder="Digite um número">
+            <button type="submit">Receber Conselhos</button>
+        </form>
+
+        <!-- Exibe os conselhos recebidos apenas após o envio do formulário -->
+        {% if advices %}
+        <h2>Conselhos Mágicos:</h2>
+        <ul>
+            {% for advice in advices %}
+            <li>{{ advice }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!-- Exibe os conselhos traduzidos apenas após o envio do formulário -->
+        {% if translated_advices %}
+        <h2>Conselhos Traduzidos:</h2>
+        <ul>
+            {% for translated in translated_advices %}
+            <li>{{ translated }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
